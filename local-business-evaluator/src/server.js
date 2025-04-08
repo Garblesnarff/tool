@@ -40,18 +40,10 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static files (e.g., screenshots)
 app.use('/public', express.static('public'));
 
-/
-app.use(cors());
-app.use(helmet());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Serve static files (e.g., screenshots)
-app.use('/public', express.static('public'));
-
 // API routes
 app.use('/api/businesses', businessRoutes);
 app.use('/api/interactions', interactionRoutes);
+app.use('/api/reports', reportRoutes); // Add report routes
 
 // Error handling middleware
 app.use((err, req, res, next) => {
